@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <img id="image" style="border: 10px solid transparent;" >
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js" ></script>
+    <script>
+    const socket = io.connect("http://localhost:3000");
+    socket.on("image",data=>{
+       // console.log(data);
+        const image = document.getElementById("image");
+        image.src = `data:image/jpeg;base64,${data}`
+      // image.src="https://img-a.udemycdn.com/course/750x422/1955654_2ed0.jpg"
+    })
+    </script>
+</body>
+</html>
